@@ -41,6 +41,16 @@ sys_waitpid(void)
 	if(argint(2, &options) < 0) return -1;
 	return waitpid(pid,status, options);
 }
+
+int 
+sys_prioritySet(void)
+{
+  int priority;
+  if(argint(0, &priority) < 0)
+	return -1;
+  return prioritySet(priority);
+} 
+
 int
 sys_kill(void)
 {
